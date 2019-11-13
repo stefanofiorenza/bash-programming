@@ -1,0 +1,185 @@
+BASH PROGRAMMING:
+
+
+What is a Shell? (Shell Programming in Unix, Linux and OS X)
+	What Is the Shell? 
+	The Kernel and the Utilities 
+	The Login Shell 
+	Typing Commands to the Shell 
+	The Shell’s Responsibilities 
+	Program Execution 
+	Variable and Filename Substitution 
+	I/O Redirection 
+	Hooking up a Pipeline 
+	Environment Control 
+	Interpreted Programming Language
+
+
+Shell Configuration
+	Shell initialization files  
+	System-wide configuration files  
+	Individual user configuration files  
+	Changing shell configuration files  
+	Variables   
+	Types of variables  
+	Creating variables    
+	Exporting variables  
+	Reserved variables  
+	Special parameters  
+	Quoting characters  
+	Escape characters    
+	Single quotes  
+	Double quotes  
+	ANSI-C quoting  
+	Locales  
+	Shell expansion  
+	Brace expansion  
+	Tilde expansion  
+	Shell parameter and variable expansion      
+	Command substitution  
+	Arithmetic expansion  
+	Process substitution  
+	Word splitting  
+	File name expansion  
+	Aliases    
+	More Bash options  
+
+
+Conditional flows:
+	Exit Status 
+	The $? Variable 
+	The test Command 
+	String Operators 
+	An Alternative Format for test 
+	Integer Operators 
+	File Operators 
+	The Logical Negation Operator ! 
+	The Logical AND Operator -a 
+	Parentheses 
+	The Logical OR Operator -o 
+	The else Construct 
+	The exit Command 
+	The elif Construct 
+	The case Command 
+	Special Pattern-Matching Characters 
+
+
+Loops:
+	for loop
+	The for Command 
+	The $@ Variable 
+	The for Without the List 
+	The while Command 
+	The until Command 
+	More on Loops 
+	Breaking Out of a Loop 
+	Skipping the Remaining Commands in a Loop 
+	Executing a Loop in the Background 
+	I/O Redirection on a Loop
+	Piping Data into and out of a Loop 
+	Typing a Loop on One Line 
+	The getopts Command 
+
+Functions
+	Returning a Value
+	Using Variables in Functions
+	Array Variables and Functions
+	Function Recursion
+	Creating a Library
+	Using Functions on the Command Line
+
+
+Arrays:
+	Using an Array 
+	Two-Dimensional Grids
+	Working with Single-String Grids
+	Two-Dimensional Grids Using Arrays
+
+Shell Environment>
+	Local Variables 
+	Subshells 
+	Exported Variables 
+	export -p 
+	PS1 and PS2 
+	HOME 
+	PATH 
+	Your Current Directory 
+	CDPATH 
+	More on Subshells 
+	The .Command 
+	The exec Command 
+	The (...) and { ...; } Constructs 
+	Another Way to Pass Variables to a Subshell 
+	Your .profile File The TERM Variable 
+	The TZ Variable
+
+Text Manipulation
+	Text filtering tools 
+	Head and tail 
+	The diff command 
+	The cut command 
+	The paste command 
+	The join command 
+	The uniq commandThe comm command 
+	The tr command 
+	IO redirection 
+	File descriptors 
+	Redirection 
+	Brace expansion 
+	Pattern matching with the vi editor
+	Sed
+	Awk
+
+Working with Files (Shell Programming in Unix, Linux and OS X)
+	Listing Files: The ls Command 
+	Displaying the Contents of a File: The cat Command 
+	Counting the Number of Words in a File: The wc Command 
+	Command Options 
+	Making a Copy of a File: The cp Command 
+	Renaming a File: The mv Command 
+	Removing a File: The rm Command 
+	Working with Directories 
+	The Home Directory and Pathnames 
+	Displaying Your Working Directory: The pwd Command 
+	Changing Directories: The cd Command 
+	More on the ls Command 
+	Creating a Directory: The mkdir Command 
+	Copying a File from One Directory to Another 
+	Moving Files Between Directories 
+	Linking Files: The ln Command 
+	Removing a Directory: The rmdir Command 
+	Filename Substitution 
+	The Asterisk 
+	Matching Single Characters 
+	Filename Nuances 
+	Spaces in Filenames 
+	Other Weird Characters 
+
+
+Shell Arithmetic
+	Floating-Point Math and the bc Utility 
+	Creating Some Shell Scripts Using bc 
+	Testing for Integers and Floating-Point Numbers 
+	Building a Math Statement for the bc Command 
+	Using a Here Document 
+	Using getopts to Parse the Command Line 
+	Building a Math Statement String for bc 
+	Here Document and Presenting the Result 
+	Parsing the Command Line for Valid Numbers
+
+Regular Expressions
+	What are regular expressions
+	metacharacthers
+	pattern matching
+	regular expressions and grep
+	Pattern matching using Bash features
+
+Job Control commands
+	cron service
+	Crontab Syntax and Operators
+	Linux Crontab Command
+
+Data Processing
+	What Is a Record File?
+	Processing the Record Files
+	merge, split, filter record files
