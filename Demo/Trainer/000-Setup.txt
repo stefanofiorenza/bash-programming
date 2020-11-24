@@ -1,0 +1,17 @@
+Setup Env:
+- Linux WSL Installed
+- sudo privileges and pw set
+
+- SHARING FILES:
+
+Access win dirs from Linux WSL:
+	> cd /mnt
+	> ls 
+	=> drive names
+	
+	Access example: C:/temp/example.txt
+	> nano /mnt/c/temp/example.txt
+	
+		Write some contents and then save it (CTRL+X)
+
+	> cd /mnt/c/Bash/demo

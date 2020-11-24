@@ -1,0 +1,17 @@
+
+
+Few but good
+https://github.com/tcd4/bash-exercises
+
+Complete course labs
+https://github.com/davidesarra/bash-scripting-and-shell-programming
+
+Labs Solution from Book Pro Bash Programming: Scripting the GNU/Linux Shell" V2 by Chis F.A. Johnson and Jayant Varma
+https://github.com/Anthonyntilelli/bash-exercises
+
+Pro Bash
+https://github.com/ryandavis3/probash
+
+eXERCISM
+https://github.com/tqa236/all_tracks_exercism
+https://github.com/tqa236/bash_exercism/tree/bc72d13c2995ffeadcb22743a90826ff5c199252

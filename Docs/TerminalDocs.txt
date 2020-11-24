@@ -1,0 +1,22 @@
+
+Grep tutorials:
+https://www.grymoire.com/Unix/Grep.html
+
+
+AWK:
+https://www.grymoire.com/Unix/Awk.html
+http://zetcode.com/lang/awk/
+https://likegeeks.com/awk-command/
+https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
+
+SED:
+https://www.grymoire.com/Unix/Sed.html
+
+Find:
+https://www.grymoire.com/Unix/Find.html
+
+
+sort:
+
+RegEx:
+https://www.grymoire.com/Unix/Regular.html

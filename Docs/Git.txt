@@ -1,0 +1,29 @@
+Git repo:
+https://gist.github.com/bradtraversy/ac3b1136fc7d739a788ad1e42a78b610
+
+https://github.com/tacksoo/bash_basics
+
+Basics and Idee Tutorial
+https://github.com/ruanyf/simple-bash-scripts
+
+Basic with blog
+https://github.com/techarkit/shell-scripting-tutorial
+
+
+Advanced Scripts done:
+https://github.com/gruntwork-io/bash-commons
+
+
+Exercism
+https://github.com/exercism/bash
+
+Labs:
+https://github.com/krother/bash_tutorial
+https://github.com/JiangKeshu/bash_exercises
+
+
+https://www.youtube.com/watch?v=oxuRxtrO2Ag
+
+
+
+https://github.com/PacktPublishing/Complete-Bash-Shell-Scripting-

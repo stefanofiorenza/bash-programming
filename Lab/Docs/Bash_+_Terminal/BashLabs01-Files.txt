@@ -1,0 +1,11 @@
+
+FILES
+
+
+
+CSV
+1) Write all file details from current dir in a csv format
+2) Filter only the one from date X
+3) Sort them
+4) Aggreagte Price by category on Csv of products
+5) Convert into xml

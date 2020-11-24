@@ -1,0 +1,29 @@
+
+String and text:
+
+LOGS
+1) count exception per type
+2) slowest response from server 
+3) fastest response from server 
+4) average response time 
+
+
+1) Json translator 
+	(lower to upper)
+	(first upper)
+	lang (file with mapping) file with data -> replace 
+		
+2) csv to json
+	filters
+	transformer	
+	aggregator	(price x category)
+
+3) csv to xml
+	filters
+	transformer
+	aggregator	(price x category)
+	
+4) json into html table
+
+
+5) 

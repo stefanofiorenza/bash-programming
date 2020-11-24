@@ -1,0 +1,1496 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://catonmat.net/bash-one-liners-explained-part-three
+Subject: Bash One-Liners Explained, Part III: All about redirections
+Date: Mon, 5 Oct 2020 20:34:02 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----"
+
+
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: text/html
+Content-ID: <frame-408E1501F075AB729EE30CEF0D136F55@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://catonmat.net/bash-one-liners-explained-part-three
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8">
+   =20
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width,minimum-scale=
+=3D1,initial-scale=3D1">
+
+    <title>Bash One-Liners Explained, Part III: All about redirections</tit=
+le>
+
+    <link href=3D"https://catonmat.net/bash-one-liners-explained-part-three=
+" rel=3D"canonical">
+    <link rel=3D"alternate" type=3D"application/rss+xml" href=3D"https://ca=
+tonmat.net/feed">
+
+    <meta property=3D"og:title" content=3D"Bash One-Liners Explained, Part =
+III: All about redirections">
+    <meta property=3D"og:description" content=3D"This is the third part of =
+the Bash One-Liners Explained article series. In this part I'll teach you a=
+ll about input/output redirection. I'll use only the best bash practices, v=
+arious bash idioms and tricks. I want to illustrate how to get various task=
+s done with just bash built-in commands and bash programming language...">
+    <meta property=3D"og:url" content=3D"https://catonmat.net/bash-one-line=
+rs-explained-part-three">
+        <meta property=3D"og:image" content=3D"https://catonmat.net/images/=
+catonmat-preview-image.png">
+   =20
+    <meta name=3D"twitter:card" content=3D"summary_large_image">
+    <meta name=3D"twitter:site" content=3D"@catonmat">
+    <meta name=3D"twitter:title" content=3D"Bash One-Liners Explained, Part=
+ III: All about redirections">
+    <meta name=3D"twitter:description" content=3D"This is the third part of=
+ the Bash One-Liners Explained article series. In this part I'll teach you =
+all about input/output redirection. I'll use only the best bash practices, =
+various bash idioms and tricks. I want to illustrate how to get various tas=
+ks done with just bash built-in commands and bash programming language...">
+    <meta name=3D"twitter:creator" content=3D"@pkrumins">
+
+        <meta name=3D"twitter:image:src" content=3D"https://catonmat.net/im=
+ages/catonmat-preview-image.png">
+   =20
+    <link rel=3D"apple-touch-icon" href=3D"https://catonmat.net/favicon.png=
+">
+    <link rel=3D"icon" href=3D"https://catonmat.net/favicon.png">
+
+   =20
+   =20
+
+    <link rel=3D"stylesheet" href=3D"https://catonmat.net/css/normalize.css=
+?v=3D9ac2af">
+    <link rel=3D"stylesheet" href=3D"https://catonmat.net/css/stylesheet.cs=
+s?v=3D9ac2af">
+   =20
+</head>
+<body>
+    <div class=3D"site-page">
+        <header class=3D"site-header">
+            <div class=3D"logo">
+                <a href=3D"https://catonmat.net/"><img src=3D"https://caton=
+mat.net/images/catonmat-logo-powered-by-alien-technology.png"></a>
+            </div>
+            <div class=3D"navigation">
+               =20
+
+                   =20
+    <nav>
+        <ul>
+           =20
+        <li><a href=3D"https://catonmat.net/archive">archive</a></li>
+   =20
+           =20
+        <li><a href=3D"https://catonmat.net/books">books</a></li>
+   =20
+           =20
+        <li><a href=3D"https://catonmat.net/tools">tools</a></li>
+   =20
+           =20
+        <li><a href=3D"https://catonmat.net/projects">projects</a></li>
+   =20
+                       =20
+        <li><a href=3D"https://catonmat.net/about">about</a></li>
+   =20
+        </ul>
+    </nav>
+
+            </div>
+        </header>
+       =20
+       =20
+    <section class=3D"site-articles">
+        <article>
+           =20
+                <h1>
+    <a href=3D"https://catonmat.net/bash-one-liners-explained-part-three">B=
+ash One-Liners Explained, Part III: All about redirections</a>
+</h1>
+           =20
+           =20
+                <div class=3D"last-updated">Last updated=20
+    3 weeks ago
+</div>
+           =20
+            <div class=3D"article-body">
+               =20
+    <p>This is the third part of the <strong>Bash One-Liners Explained</str=
+ong> article series. In this part I'll teach you all about input/output red=
+irection. I'll use only the best bash practices, various bash idioms and tr=
+icks. I want to illustrate how to get various tasks done with just bash bui=
+lt-in commands and bash programming language constructs.</p>
+<p>See the <a href=3D"https://catonmat.net/bash-one-liners-explained-part-o=
+ne">first part</a> of the series for introduction. After I'm done with the =
+series I'll release an ebook (similar to my ebooks on <a href=3D"https://ca=
+tonmat.net/awk-book">awk</a>, <a href=3D"https://catonmat.net/sed-book">sed=
+</a>, and <a href=3D"https://catonmat.net/perl-book">perl</a>), and also ba=
+sh1line.txt (similar to my <a href=3D"https://catonmat.net/ftp/perl1line.tx=
+t">perl1line.txt</a>).</p>
+<p>Also see my other articles about working fast in bash from 2007 and 2008=
+:</p>
+<ul>
+<li><a href=3D"https://catonmat.net/bash-emacs-editing-mode-cheat-sheet">Wo=
+rking Productively in Bash's Emacs Command Line Editing Mode (comes with a =
+cheat sheet)</a></li>
+<li><a href=3D"https://catonmat.net/bash-vi-editing-mode-cheat-sheet">Worki=
+ng Productively in Bash's Vi Command Line Editing Mode (comes with a cheat =
+sheet)</a></li>
+<li><a href=3D"https://catonmat.net/the-definitive-guide-to-bash-command-li=
+ne-history">The Definitive Guide to Bash Command Line History  (comes with =
+a cheat sheet)</a></li>
+</ul>
+<p>Let's start.</p>
+<h2>Part III: Redirections</h2>
+<p>Working with redirections in bash is really easy once you realize that i=
+t's all about manipulating file descriptors. When bash starts it opens the =
+three standard file descriptors: stdin (file descriptor 0), stdout (file de=
+scriptor 1), and stderr (file descriptor 2). You can open more file descrip=
+tors (such as 3, 4, 5, ...), and you can close them. You can also copy file=
+ descriptors. And you can write to them and read from them.</p>
+<p>File descriptors always point to some file (unless they're closed). Usua=
+lly when bash starts all three file descriptors, stdin, stdout, and stderr,=
+ point to your terminal. The input is read from what you type in the termin=
+al and both outputs are sent to the terminal.</p>
+<p>Assuming your terminal is <code>/dev/tty0</code>, here is how the file d=
+escriptor table looks like when bash starts:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/initial-fd-table.=
+png">
+</center>
+<p>When bash runs a command it forks a child process (see <code>man 2 fork<=
+/code>) that inherits all the file descriptors from the parent process, the=
+n it sets up the redirections that you specified, and execs the command (se=
+e <code>man 3 exec</code>).</p>
+<p>To be a pro at bash redirections all you need to do is visualize how the=
+ file descriptors get changed when redirections happen. The graphics illust=
+rations will help you.</p>
+<p><strong>1. Redirect the standard output of a command to a file</strong><=
+/p>
+<pre>$ command &gt;file
+</pre>
+<p>Operator <code>&gt;</code> is the output redirection operator. Bash firs=
+t tries to open the file for writing and if it succeeds it sends the stdout=
+ of <code>command</code> to the newly opened file. If it fails opening the =
+file, the whole command fails.</p>
+<p>Writing <code>command &gt;file</code> is the same as writing <code>comma=
+nd 1&gt;file</code>. The number <code>1</code> stands for stdout, which is =
+the file descriptor number for standard output.</p>
+<p>Here is how the file descriptor table changes. Bash opens <code>file</co=
+de> and replaces file descriptor 1 with the file descriptor that points to =
+<code>file</code>. So all the output that gets written to file descriptor 1=
+ from now on ends up being written to <code>file</code>:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout.p=
+ng">
+</center>
+<p>In general you can write <code>command n&gt;file</code>, which will redi=
+rect the file descriptor <code>n</code> to <code>file</code>.</p>
+<p>For example,</p>
+<pre>$ ls &gt; file_list
+</pre>
+<p>Redirects the output of the <code>ls</code> command to the <code>file_li=
+st</code> file.</p>
+<p><strong>2. Redirect the standard error of a command to a file</strong></=
+p>
+<pre>$ command 2&gt; file
+</pre>
+<p>Here bash redirects the stderr to file. The number <code>2</code> stands=
+ for stderr.</p>
+<p>Here is how the file descriptor table changes:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stderr.p=
+ng">
+</center>
+<p>Bash opens <code>file</code> for writing, gets the file descriptor for t=
+his file, and it replaces file descriptor 2 with the file descriptor of thi=
+s file. So now anything written to stderr gets written to file.</p>
+<p><strong>3. Redirect both standard output and standard error to a file</s=
+trong></p>
+<pre>$ command &amp;&gt;file
+</pre>
+<p>This one-liner uses the <code>&amp;&gt;</code> operator to redirect both=
+ output streams - stdout and stderr - from <code>command</code> to <code>fi=
+le</code>. This is bash's shortcut for quickly redirecting both streams to =
+the same destination.</p>
+<p>Here is how the file descriptor table looks like after bash has redirect=
+ed both streams:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout-s=
+tderr.png">
+</center>
+<p>As you can see both stdout and stderr now point to <code>file</code>. So=
+ anything written to stdout and stderr gets written to <code>file</code>.</=
+p>
+<p>There are several ways to redirect both streams to the same destination.=
+ You can redirect each stream one after another:</p>
+<pre>$ command &gt;file 2&gt;&amp;1
+</pre>
+<p>This is a much more common way to redirect both streams to a file. First=
+ stdout is redirected to <code>file</code>, and then stderr is duplicated t=
+o be the same as stdout. So both streams end up pointing to <code>file</cod=
+e>.</p>
+<p>When bash sees several redirections it processes them from left to right=
+. Let's go through the steps and see how that happens. Before running any c=
+ommands bash's file descriptor table looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/initial-fd-table.=
+png">
+</center>
+<p>Now bash processes the first redirection <code>&gt;file</code>. We've se=
+en this before and it makes stdout point to <code>file</code>:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout.p=
+ng">
+</center>
+<p>Next bash sees the second redirection <code>2&gt;&amp;1</code>. We haven=
+'t seen this redirection before. This one duplicates file descriptor 2 to b=
+e a copy of file descriptor 1 and we get:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout-s=
+tderr.png">
+</center>
+<p>Both streams have been redirected to <code>file</code>.</p>
+<p>However be careful here! Writing:</p>
+<pre>command &gt;file 2&gt;&amp;1
+</pre>
+<p>Is not the same as writing:</p>
+<pre>$ command 2&gt;&amp;1 &gt;file
+</pre>
+<p>The order of redirects matters in bash! This command redirects only the =
+standard output to the file. The stderr will still print to the terminal. T=
+o understand why that happens, let's go through the steps again. So before =
+running the command the file descriptor table looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/initial-fd-table.=
+png">
+</center>
+<p>Now bash processes redirections left to right. It first sees <code>2&gt;=
+&amp;1</code> so it duplicates stderr to stdout. The file descriptor table =
+becomes:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/duplicate-stderr-=
+stdout.png">
+</center>
+<p>Now bash sees the second redirect <code>&gt;file</code> and it redirects=
+ stdout to <code>file</code>:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/duplicate-stderr-=
+stdout-stdout-file.png">
+</center>
+<p>Do you see what happens here? Stdout now points to <code>file</code> but=
+ the stderr still points to the terminal! Everything that gets written to s=
+tderr still gets printed out to the screen! So be very, very careful with t=
+he order of redirects!</p>
+<p>Also note that in bash, writing this:</p>
+<pre>$ command &amp;&gt;file
+</pre>
+<p>Is exactly the same as:</p>
+<pre>$ command &gt;&amp;file
+</pre>
+<p>The first form is preferred however.</p>
+<p><strong>4. Discard the standard output of a command</strong></p>
+<pre>$ command &gt; /dev/null
+</pre>
+<p>The special file <code>/dev/null</code> discards all data written to it.=
+ So what we're doing here is redirecting stdout to this special file and it=
+ gets discarded. Here is how it looks from the file descriptor table's pers=
+pective:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout-d=
+ev-null.png">
+</center>
+<p>Similarly, by combining the previous one-liners, we can discard both std=
+out and stderr by doing:</p>
+<pre>$ command &gt;/dev/null 2&gt;&amp;1
+</pre>
+<p>Or just simply:</p>
+<pre>$ command &amp;&gt;/dev/null
+</pre>
+<p>File descriptor table for this feat looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdout-s=
+tderr-dev-null.png">
+</center>
+<p><strong>5. Redirect the contents of a file to the stdin of a command</st=
+rong></p>
+<pre>$ command &amp;lt;file
+</pre>
+<p>Here bash tries to open the file for reading before running any commands=
+. If opening the file fails, bash quits with error and doesn't run the comm=
+and. If opening the file succeeds, bash uses the file descriptor of the ope=
+ned file as the stdin file descriptor for the command.</p>
+<p>After doing that the file descriptor table looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/redirect-stdin.pn=
+g">
+</center>
+<p>Here is an example. Suppose you want to read the first line of the file =
+in a variable. You can simply do this:</p>
+<pre>$ read -r line &lt; file
+</pre>
+<p>Bash's built-in <code>read</code> command reads a single line from stand=
+ard input. By using the input redirection operator <code>&lt;</code> we set=
+ it up to read the line from the file.</p>
+<p><strong>6. Redirect a bunch of text to the stdin of a command</strong></=
+p>
+<pre>$ command &amp;lt;&amp;lt;EOL
+your
+multi-line
+text
+goes
+here
+EOL
+</pre>
+<p>Here we use the here-document redirection operator <code>&lt;&lt;MARKER<=
+/code>. This operator instructs bash to read the input from stdin until a l=
+ine containing only <code>MARKER</code> is found. At this point bash passes=
+ the all the input read so far to the stdin of the command.</p>
+<p>Here is a common example. Suppose you've copied a bunch of URLs to the c=
+lipboard and you want to remove <code>http://</code> part of them. A quick =
+one-liner to do this would be:</p>
+<pre>$ sed 's|http://||' &lt;&lt;EOL
+http://url1.com
+http://url2.com
+http://url3.com
+EOL
+</pre>
+<p>Here the input of a list of URLs is redirected to the <code>sed</code> c=
+ommand that strips <code>http://</code> from the input.</p>
+<p>This example produces this output:</p>
+<pre>url1.com
+url2.com
+url3.com
+</pre>
+<p><strong>7. Redirect a single line of text to the stdin of a command</str=
+ong></p>
+<pre>$ command &amp;lt;&amp;lt;&amp;lt; "foo bar baz"
+</pre>
+<p>For example, let's say you quickly want to pass the text in your clipboa=
+rd as the stdin to a command. Instead of doing something like:</p>
+<pre>$ echo "clipboard contents" | command
+</pre>
+<p>You can now just write:</p>
+<pre>$ command &amp;lt;&amp;lt;&amp;lt; "clipboard contents"
+</pre>
+<p>This trick changed my life when I learned it!</p>
+<p><strong>8. Redirect stderr of all commands to a file forever</strong></p=
+>
+<pre>$ exec 2&gt;file
+$ command1
+$ command2
+$ ...
+</pre>
+<p>This one-liner uses the built-in <code>exec</code> bash command. If you =
+specify redirects after it, then they will last forever, meaning until you =
+change them or exit the script/shell.</p>
+<p>In this case the <code>2&gt;file</code> redirect is setup that redirects=
+ the stderr of the current shell to the <code>file</code>. Running commands=
+ after setting up this redirect will have the stderr of all of them redirec=
+ted to file. It's really useful in situations when you want to have a compl=
+ete log of all errors that happened in the script, but you don't want to sp=
+ecify <code>2&gt;file</code> after every single command!</p>
+<p>In general <code>exec</code> can take an optional argument of a command.=
+ If it's specified, bash replaces itself with the command. So what you get =
+is only that command running, and there is no more shell.</p>
+<p><strong>9. Open a file for reading using a custom file descriptor</stron=
+g></p>
+<pre>$ exec 3&amp;lt;file
+</pre>
+<p>Here we use the <code>exec</code> command again and specify the <code>3&=
+lt;file</code> redirect to it. What this does is opens the file for reading=
+ and assigns the opened file-descriptor to the shell's file descriptor numb=
+er <code>3</code>. The file descriptor table now looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/custom-fd.png">
+</center>
+<p>Now you can read from the file descriptor <code>3</code>, like this:</p>
+<pre>$ read -u 3 line
+</pre>
+<p>This reads a line from the file that we just opened as fd <code>3</code>=
+.</p>
+<p>Or you can use regular shell commands such as <code>grep</code> and oper=
+ate on file descriptor <code>3</code>:</p>
+<pre>$ grep "foo" &lt;&amp;3
+</pre>
+<p>What happens here is file descriptor <code>3</code> gets duplicated to f=
+ile descriptor <code>1</code> - stdin of grep. Just remember that once you =
+read the file descriptor it's been exhausted and you need to close it and o=
+pen it again to use it. (You can't rewind an fd in bash.)</p>
+<p>After you're done using fd <code>3</code>, you can close it this way:</p=
+>
+<pre>$ exec 3&gt;&amp;-
+</pre>
+<p>Here the file descriptor <code>3</code> is duped to <code>-</code>, whic=
+h is bash's special way to say "close this fd".</p>
+<p><strong>10. Open a file for writing using a custom file descriptor</stro=
+ng></p>
+<pre>$ exec 4&gt;file
+</pre>
+<p>Here we simply tell bash to open file for writing and assign it number <=
+code>4</code>. The file descriptor table looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/custom-fd-writing=
+.png">
+</center>
+<p>As you can see file descriptors don't have to be used in order, you can =
+open any file descriptor number you like from 0 to 255.</p>
+<p>Now we can simply write to the file descriptor <code>4</code>:</p>
+<pre>$ echo "foo" &gt;&amp;4
+</pre>
+<p>And we can close the file descriptor <code>4</code>:</p>
+<pre>$ exec 4&gt;&amp;-
+</pre>
+<p>It's so simple now once we learned how to work with custom file descript=
+ors!</p>
+<p><strong>11. Open a file both for writing and reading</strong></p>
+<pre>$ exec 3&lt;&gt;file
+</pre>
+<p>Here we use bash's diamond operator <code>&lt;&gt;</code>. The diamond o=
+perator opens a file descriptor for both reading and writing.</p>
+<p>So for example, if you do this:</p>
+<pre>$ echo "foo bar" &gt; file   # write string "foo bar" to file "file".
+$ exec 5&lt;&gt; file           # open "file" for rw and assign it fd 5.
+$ read -n 3 var &lt;&amp;5       # read the first 3 characters from fd 5.
+$ echo $var
+</pre>
+<p>This will output <code>foo</code> as we just read the first 3 chars from=
+ the file.</p>
+<p>Now we can write some stuff to the file:</p>
+<pre>$ echo -n + &gt;&amp;5           # write "+" at 4th position.
+$ exec 5&gt;&amp;-               # close fd 5.
+$ cat file
+</pre>
+<p>This will output <code>foo+bar</code> as we wrote the <code>+</code> cha=
+r at 4th position in the file.</p>
+<p><strong>12. Send the output from multiple commands to a file</strong></p=
+>
+<pre>$ (command1; command2) &gt;file
+</pre>
+<p>This one-liner uses the <code>(commands)</code> construct that runs the =
+commands a sub-shell. A sub-shell is a child process launched by the curren=
+t shell.</p>
+<p>So what happens here is the commands <code>command1</code> and <code>com=
+mand2</code> get executed in the sub-shell, and bash redirects their output=
+ to <code>file</code>.</p>
+<p><strong>13. Execute commands in a shell through a file</strong></p>
+<p>Open two shells. In shell 1 do this:</p>
+<pre>mkfifo fifo
+exec &lt; fifo
+</pre>
+<p>In shell 2 do this:</p>
+<pre>exec 3&gt; fifo;
+echo 'echo test' &gt;&amp;3
+</pre>
+<p>Now take a look in shell 1. It will execute <code>echo test</code>. You =
+can keep writing commands to <code>fifo</code> and shell 1 will keep execut=
+ing them.</p>
+<p>Here is how it works.</p>
+<p>In shell 1 we use the <code>mkfifo</code> command to create a named pipe=
+ called <code>fifo</code>. A named pipe (also called a FIFO) is similar to =
+a regular pipe, except that it's accessed as part of the file system. It ca=
+n be opened by multiple processes for reading or writing. When processes ar=
+e exchanging data via the FIFO, the kernel passes all data internally witho=
+ut writing it to the file system. Thus, the FIFO special file has no conten=
+ts on the file system; the file system entry merely serves as a reference p=
+oint so that processes can access the pipe using a name in the file system.=
+</p>
+<p>Next we use <code>exec &lt; fifo</code> to replace current shell's stdin=
+ with <code>fifo</code>.</p>
+<p>Now in shell 2 we open the named pipe for writing and assign it a custom=
+ file descriptor 3. Next we simply write <code>echo test</code> to the file=
+ descriptor 3, which goes to <code>fifo</code>.</p>
+<p>Since shell 1's stdin is connected to this pipe it executes it! Really s=
+imple!</p>
+<p><strong>14. Access a website through bash</strong></p>
+<pre>$ exec 3&lt;&gt;/dev/tcp/www.google.com/80
+$ echo -e "GET / HTTP/1.1\n\n" &gt;&amp;3
+$ cat &lt;&amp;3
+</pre>
+<p>Bash treats the <code>/dev/tcp/host/port</code> as a special file. It do=
+esn't need to exist on your system. This special file is for opening tcp co=
+nnections through bash.</p>
+<p>In this example we first open file descriptor 3 for reading and writing =
+and point it to <code>/dev/tcp/www.google.com/80</code> special file, which=
+ is a connection to <code>www.google.com</code> on port 80.</p>
+<p>Next we write <code>GET / HTTP/1.1\n\n</code> to file descriptor 3. And =
+then we simply read the response back from the same file descriptor by usin=
+g <code>cat</code>.</p>
+<p>Similarly you can create a UDP connection through <code>/dev/udp/host/po=
+rt</code> special file.</p>
+<p>With <code>/dev/tcp/host/port</code> you can even write things like port=
+ scanners in bash!</p>
+<p><strong>15. Prevent overwriting the contents of a file when redirecting =
+output</strong></p>
+<pre>$ set -o noclobber
+</pre>
+<p>This turns on the <code>noclobber</code> option for the current shell. T=
+he noclobber option prevents you from overwriting existing files with the &=
+gt; operator.</p>
+<p>If you try redirecting output to a file that exists, you'll get an error=
+:</p>
+<pre>$ program &gt; file
+bash: file: cannot overwrite existing file
+</pre>
+<p>If you're 100% sure that you want to overwrite the file, use the <code>&=
+gt;|</code> redirection operator:</p>
+<pre>$ program &gt;| file
+</pre>
+<p>This succeeds as it overrides the noclobber option.</p>
+<p><strong>16. Redirect standard input to a file and print it to standard o=
+utput</strong></p>
+<pre>$ command | tee file
+</pre>
+<p>The <code>tee</code> command is super handy. It's not part of bash but y=
+ou'll use it often. It takes an input stream and prints it both to standard=
+ output and to a file.</p>
+<p>In this example it takes the stdout of command, puts it in file, and pri=
+nts it to stdout.</p>
+<p>Here is a graphical illustration of how it works:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/tee.png">
+</center>
+<p><strong>17. Send stdout of one process to stdin of another process</stro=
+ng></p>
+<pre>$ command1 | command2
+</pre>
+<p>This is simple piping. I'm sure everyone is familiar with this. I'm just=
+ including it here for completeness. Just to remind you, a pipe connects st=
+dout of <code>command1</code> with the stdin of <code>command2</code>.</p>
+<p>It can be illustrated with a graphic:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/pipe.png">
+</center>
+<p>As you can see, everything sent to file descriptor 1 (stdout) of command=
+1 gets redirected through a pipe to file descriptor 0 (stdin) of command2.<=
+/p>
+<p>You can read more about pipes in <code>man 2 pipe</code>.</p>
+<p><strong>18. Send stdout and stderr of one process to stdin of another pr=
+ocess</strong></p>
+<pre>$ command1 |&amp; command2
+</pre>
+<p>This works on bash versions starting 4.0. The <code>|&amp;</code> redire=
+ction operator sends both stdout and stderr of command1 over a pipe to stdi=
+n of command2.</p>
+<p>As the new features of bash 4.0 aren't widely used, the old, and more po=
+rtable way to do the same is:</p>
+<pre>$ command1 2&gt;&amp;1 | command2
+</pre>
+<p>Here is an illustration that shows what happens with file descriptors:</=
+p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/pipe-stdout-stder=
+r.png">
+</center>
+<p>First command1's stderr is redirected to stdout, and then a pipe is setu=
+p between command1's stdout and command2's stdin.</p>
+<p><strong>19. Give file descriptors names</strong></p>
+<pre>$ exec {filew}&gt;output_file
+</pre>
+<p>Named file descriptors is a feature of bash 4.1. Named file descriptors =
+look like <code>{varname}</code>. You can use them just like regular, numer=
+ic, file descriptors. Bash internally chooses a free file descriptor and as=
+signs it a name.</p>
+<p><strong>20. Order of redirections</strong></p>
+<p>You can put the redirections anywhere in the command you want. Check out=
+ these 3 examples, they all do the same:</p>
+<pre>$ echo hello &gt;/tmp/example
+
+$ echo &gt;/tmp/example hello
+
+$ &gt;/tmp/example echo hello
+</pre>
+<p>Got to love bash!</p>
+<p><strong>21. Swap stdout and stderr</strong></p>
+<pre>$ command 3&gt;&amp;1 1&gt;&amp;2 2&gt;&amp;3
+</pre>
+<p>Here we first duplicate file descriptor 3 to be a copy of stdout. Then w=
+e duplicate stdout to be a copy of stderr, and finally we duplicate stderr =
+to be a copy of file descriptor 3, which is stdout. As a result we've swapp=
+ed stdout and stderr.</p>
+<p>Let's go through each redirection with illustrations. Before running the=
+ command, we've file descriptors pointing to the terminal:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/initial-fd-table.=
+png">
+</center>
+<p>Next bash setups <code>3&gt;&amp;1</code> redirection. This creates file=
+ descriptor 3 to be a copy of file descriptor 1:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/fd3-copy-of-fd1.p=
+ng">
+</center>
+<p>Next bash setups <code>1&gt;&amp;2</code> redirection. This makes file d=
+escriptor 1 to be a copy of file descriptor 2:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/fd1-copy-of-fd2.p=
+ng">
+</center>
+<p>Next bash setups <code>2&gt;&amp;3</code> redirection. This makes file d=
+escriptor 2 to be a copy of file descriptor 3:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/fd2-copy-of-fd3.p=
+ng">
+</center>
+<p>If we want to be nice citizens we can also close file descriptor 3 as it=
+'s no longer needed:</p>
+<pre>$ command 3&gt;&amp;1 1&gt;&amp;2 2&gt;&amp;3 3&gt;&amp;-
+</pre>
+<p>The file descriptor table then looks like this:</p>
+<center>
+<img src=3D"https://catonmat.net/images/bash-redirections/fd1-fd2-swap.png"=
+>
+</center>
+<p>As you can see, file descriptors 1 and 2 have been swapped.</p>
+<p><strong>22. Send stdout to one process and stderr to another process</st=
+rong></p>
+<pre>$ command &gt; &gt;(stdout_cmd) 2&gt; &gt;(stderr_cmd)
+</pre>
+<p>This one-liner uses process substitution. The <code>&gt;(...)</code> ope=
+rator runs the commands in <code>...</code> with stdin connected to the rea=
+d part of an anonymous named pipe. Bash replaces the operator with the file=
+name of the anonymous pipe.</p>
+<p>So for example, the first substitution <code>&gt;(stdout_cmd)</code> mig=
+ht return <code>/dev/fd/60</code>, and the second substitution might return=
+ <code>/dev/fd/61</code>. Both of these files are named pipes that bash cre=
+ated on the fly. Both named pipes have the commands as readers. The command=
+s wait for someone to write to the pipes so they can read the data.</p>
+<p>The command then looks like this:</p>
+<pre>$ command &gt; /dev/fd/60 2&gt; /dev/fd/61
+</pre>
+<p>Now these are just simple redirections. Stdout gets redirected to <code>=
+/dev/fd/60</code>, and stderr gets redirected to <code>/dev/fd/61</code>.</=
+p>
+<p>When the command writes to stdout, the process behind <code>/dev/fd/60</=
+code> (process <code>stdout_cmd</code>) reads the data. And when the comman=
+d writes to stderr, the process behind <code>/dev/fd/61</code> (process <co=
+de>stderr_cmd</code>) reads the data.</p>
+<p><strong>23. Find the exit codes of all piped commands</strong></p>
+<p>Let's say you run several commands all piped together:</p>
+<pre>$ cmd1 | cmd2 | cmd3 | cmd4
+</pre>
+<p>And you want to find out the exit status codes of all these commands. Ho=
+w do you do it? There is no easy way to get the exit codes of all commands =
+as bash returns only the exit code of the last command.</p>
+<p>Bash developers thought about this and they added a special <code>PIPEST=
+ATUS</code> array that saves the exit codes of all the commands in the pipe=
+ stream.</p>
+<p>The elements of the <code>PIPESTATUS</code> array correspond to the exit=
+ codes of the commands. Here's an example:</p>
+<pre>$ echo 'pants are cool' | grep 'moo' | sed 's/o/x/' | awk '{ print $1 =
+}'
+$ echo ${PIPESTATUS[@]}
+0 1 0 0
+</pre>
+<p>In this example <code>grep 'moo'</code> fails, and the 2nd element of th=
+e <code>PIPESTATUS</code> array indicates failure.</p>
+<h2>Shoutouts</h2>
+<p>Shoutouts to bash hackers wiki for their <a href=3D"http://wiki.bash-hac=
+kers.org/howto/redirection_tutorial">illustrated redirection tutorial</a> a=
+nd <a href=3D"http://wiki.bash-hackers.org/scripting/bashchanges">bash vers=
+ion changes</a>. </p>
+<h2>Enjoy!</h2>
+<p>Enjoy the article and let me know in the comments what you think about i=
+t! If you think that I forgot some interesting bash one-liners related to r=
+edirections, let me know in the comments below!</p>
+
+            </div>
+        </article>
+    </section>
+   =20
+        <div class=3D"more">
+           =20
+    <a href=3D"https://catonmat.net/archive">Read more articles =E2=86=92</=
+a>
+
+        </div>
+   =20
+    <div class=3D"catonmat-news-box">
+        <div class=3D"catonmat-news-text">
+           =20
+    Thanks for reading my post. If you enjoyed it and would like to receive=
+ my posts automatically, you can subscribe to new posts via <a href=3D"http=
+s://catonmat.net/feed">rss feed</a> or email.
+
+        </div>
+        <div class=3D"catonmat-news-email">
+            <input type=3D"text" name=3D"email" placeholder=3D"Your email">
+            <button>Subscribe</button>
+        </div>
+       =20
+       =20
+    </div>
+            <div class=3D"article-navigation">
+            <div class=3D"go back">
+                                    <a href=3D"https://catonmat.net/five-ye=
+ars-of-blogging">Five Years of Blogging</a>
+                            </div>
+            <div class=3D"go forward">
+                                    <a href=3D"https://catonmat.net/tcp-por=
+t-scanner-in-bash">TCP Port Scanner in Bash</a>
+                            </div>
+        </div>
+   =20
+
+        <footer class=3D"site-footer">
+            <div class=3D"jelly-stains">
+                <img src=3D"https://catonmat.net/images/this-space-reserved=
+-for-jelly-stains.png" alt=3D"">
+            </div>
+                        <div class=3D"secret-message">
+                Secret message: Use coupon code <span class=3D"jellyling">J=
+ELLYLING</span> to get a discount at my company Browserling!
+            </div>
+                    </footer>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+<!-- End of Google Analytics -->
+
+
+
+
+<!-- Start of StatCounter Code -->
+
+
+
+<!-- End of StatCounter Code -->
+
+
+</body></html>
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://catonmat.net/css/normalize.css?v=9ac2af
+
+@charset "utf-8";
+
+html { line-height: 1.15; text-size-adjust: 100%; }
+
+body { margin: 0px; }
+
+main { display: block; }
+
+h1 { font-size: 2em; margin: 0.67em 0px; }
+
+hr { box-sizing: content-box; height: 0px; overflow: visible; }
+
+pre { font-family: monospace, monospace; font-size: 1em; }
+
+a { background-color: transparent; }
+
+abbr[title] { border-bottom: none; text-decoration: underline dotted; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+gn: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-size=
+: 100%; line-height: 1.15; margin: 0px; }
+
+button, input { overflow: visible; }
+
+button, select { text-transform: none; }
+
+button, [type=3D"button"], [type=3D"reset"], [type=3D"submit"] { appearance=
+: button; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; color: inherit; display: table; max-width:=
+ 100%; padding: 0px; white-space: normal; }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type=3D"checkbox"], [type=3D"radio"] { box-sizing: border-box; padding: 0p=
+x; }
+
+[type=3D"number"]::-webkit-inner-spin-button, [type=3D"number"]::-webkit-ou=
+ter-spin-button { height: auto; }
+
+[type=3D"search"] { appearance: textfield; outline-offset: -2px; }
+
+[type=3D"search"]::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://catonmat.net/css/stylesheet.css?v=9ac2af
+
+@charset "utf-8";
+
+* { box-sizing: border-box; }
+
+body { font-family: Georgia, Cambria, "Times New Roman", serif; }
+
+h1 { font-size: 1.5em; }
+
+h2 { font-size: 1.35em; }
+
+h3 { font-size: 1.2em; }
+
+h4 { font-size: 1.05em; }
+
+pre { font-size: 16px; padding: 14px; margin: 0px 0px 16px; background-colo=
+r: rgb(255, 247, 240); border-radius: 3px; border: 1px solid rgb(204, 204, =
+204); line-height: 1.45; overflow: auto; }
+
+code { background: rgb(255, 247, 240); border-radius: 3px; border: 1px soli=
+d rgb(204, 204, 204); padding: 1px 2px; }
+
+blockquote { border-left: 4px solid rgb(223, 226, 229); color: rgb(106, 115=
+, 125); padding: 0px 16px; margin: 0px 0px 16px; }
+
+a { color: rgb(0, 96, 160); text-decoration: none; border-bottom: 1px solid=
+ rgba(0, 96, 160, 0.15); }
+
+a:visited { color: rgb(112, 160, 176); text-decoration: none; border-bottom=
+-color: rgba(112, 160, 176, 0.15); }
+
+a:hover { color: rgb(176, 48, 0); text-decoration: none; border-bottom-colo=
+r: rgba(176, 48, 0, 0.15); }
+
+.site-header { font-family: serif; font-weight: bold; }
+
+.site-header a, .site-header a:visited, .site-header a:hover { border-botto=
+m: none; text-decoration: none; }
+
+.site-header img { width: 500px; max-width: 100%; }
+
+.site-header nav > ul { padding: 0px; font-size: 0px; margin: 0px; }
+
+.site-header nav > ul > li:not(:last-child)::after { content: ""; position:=
+ relative; width: 3px; height: 3px; background: black; display: inline-bloc=
+k; top: -3px; margin: 0px 8px; border-radius: 3px; }
+
+.site-header nav > ul > li { font-size: 20px; line-height: 26px; display: i=
+nline-block; list-style: none; }
+
+.site-header nav > ul > li > a { color: rgb(0, 0, 0); font-weight: 300; tex=
+t-decoration: none; border-bottom: 1px solid rgb(191, 191, 191); }
+
+.site-header nav > ul > li > a:hover { color: rgb(51, 123, 246); }
+
+.site-header nav > ul > li.selected > a { font-weight: 700; border-bottom: =
+0px; pointer-events: none; }
+
+.site-articles { text-align: left; margin-top: 100px; padding: 0px 15px; }
+
+.site-articles > article { font-weight: 400; font-style: normal; font-size:=
+ 18px; word-break: break-word; line-height: 1.58; color: rgba(0, 0, 0, 0.8)=
+; }
+
+.site-articles > article:not(:last-child)::after { content: "=E2=9C=BD=E2=
+=9C=BD=E2=9C=BD"; display: block; width: 100%; font-size: 28px; text-align:=
+ center; padding-top: 15px; color: rgb(102, 102, 102); }
+
+.site-articles > article:not(:last-child) { margin-bottom: 35px; }
+
+.site-articles > article > h1 { font-weight: 700; line-height: 1.2; }
+
+.site-articles > article > h1 > a { color: black; text-decoration: none; bo=
+rder-bottom: 0px; }
+
+.site-articles > article > .last-updated { color: gray; font-size: 15px; po=
+sition: relative; top: -10px; margin-bottom: 10px; }
+
+.article-body h2 { margin-bottom: 10px; }
+
+.article-body h3 { margin-bottom: 10px; }
+
+.article-body h4 { margin-bottom: 10px; }
+
+.article-body p, .article-body ul { margin: 0px 0px 16px; }
+
+.article-body img { max-width: 100%; display: block; margin-bottom: 8px; }
+
+.article-body center { padding-bottom: 16px; }
+
+.article-body iframe { max-width: 100%; }
+
+.article-body img.post-icon { padding: 8px 8px 8px 0px; }
+
+.article-body pre.lotsofcode { height: 310px; }
+
+.article-body .c, .article-body .center-aligner { text-align: center; }
+
+.article-body a { color: rgb(0, 96, 160); text-decoration: none; border-bot=
+tom: 1px solid rgba(0, 96, 160, 0.15); }
+
+.article-body a:visited { color: rgb(112, 160, 176); text-decoration: none;=
+ border-bottom: 1px solid rgba(112, 160, 176, 0.15); }
+
+.article-body a:hover { color: rgb(176, 48, 0); text-decoration: none; bord=
+er-bottom: 1px solid rgba(176, 48, 0, 0.15); }
+
+.article-body a.nohover { border-bottom: 0px; }
+
+.article-body .list-tldr { font-size: 0.9em; margin-left: 10px; }
+
+.article-body .list-tldr code { background: rgb(255, 241, 229); border-radi=
+us: 0px; border: 0px; padding: 0px 2px; }
+
+.catonmat-news-box { margin-top: 24px; font-size: 16px; padding: 15px; back=
+ground-color: rgb(217, 231, 241); border-radius: 5px; color: rgba(0, 0, 0, =
+0.9); text-align: left; line-height: 1.58; }
+
+.catonmat-news-box .catonmat-news-email { margin-top: 10px; }
+
+.catonmat-news-box .catonmat-news-email input { width: 100%; max-width: 230=
+px; padding: 5px; border-radius: 3px; border: 1px solid rgb(145, 186, 214);=
+ }
+
+.catonmat-news-box .catonmat-news-email button { width: 100%; max-width: 11=
+0px; font-size: 16px; padding: 5px; appearance: none; border: 1px solid rgb=
+(145, 186, 214); border-radius: 3px; background-image: linear-gradient(rgb(=
+85, 129, 181), rgb(68, 108, 156)); color: rgb(255, 255, 255); margin-top: 5=
+px; }
+
+.catonmat-news-box .catonmat-news-email-error, .catonmat-news-email-success=
+ { margin-top: 5px; font-size: 16px; }
+
+.catonmat-news-box .catonmat-news-email-error { color: red; }
+
+.catonmat-news-box .catonmat-news-email-success { color: green; }
+
+.article-navigation { margin-top: 24px; font-size: 0px; }
+
+.article-navigation .go { display: inline-block; font-size: 15px; vertical-=
+align: top; width: 50%; position: relative; }
+
+.article-navigation .go.back { text-align: left; padding-left: 22px; paddin=
+g-right: 8px; }
+
+.article-navigation .go.forward { text-align: right; padding-right: 22px; p=
+adding-left: 8px; }
+
+.article-navigation .go.back a::before { content: "=E2=86=90"; position: ab=
+solute; font-size: 18px; line-height: 22px; left: 0px; }
+
+.article-navigation .go.forward a::before { content: "=E2=86=92"; position:=
+ absolute; font-size: 18px; line-height: 22px; right: 0px; }
+
+.more { padding: 50px 15px 20px; font-size: 17px; text-align: left; }
+
+.site-footer { margin-bottom: 15px; }
+
+.site-footer .jelly-stains { padding: 15% 0px; user-select: none; pointer-e=
+vents: none; }
+
+.site-footer .jelly-stains > img { max-width: 100%; }
+
+.site-footer .secret-message { color: rgb(230, 230, 230); font-size: 11px; =
+}
+
+.site-footer .secret-message .jellyling { color: rgb(248, 216, 211); }
+
+.archive-list { padding-left: 0px; }
+
+.archive-list li { list-style-type: none; }
+
+.archive-list li .date { opacity: 0.5; margin-left: 10px; font-size: 0.9em;=
+ }
+
+.archive-list li.hidden { opacity: 0.5; }
+
+.archive-list li.hidden .date { opacity: 0.3; }
+
+.site-page { text-align: center; width: 700px; margin: 0px auto; }
+
+@media (max-width: 768px) {
+  .site-page { width: auto; margin-right: 15px; margin-left: 15px; }
+}
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://catonmat.net/images/catonmat-logo-powered-by-alien-technology.png
+
+iVBORw0KGgoAAAANSUhEUgAABdwAAAJYCAMAAABPbdQWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1
+Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu
+MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz
+b3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1N
+Ok9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YjI5NDY3Ni1jMmMxLThmNGUtOGI4Mi1mMTAx
+YWQ4ODQ2OWUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDEzRTJDQ0ExQ0U2MTFFOUE1ODFG
+OTg5MjM4MjkzNUQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDEzRTJDQzkxQ0U2MTFFOUE1
+ODFGOTg5MjM4MjkzNUQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQg
+KFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6
+YWFiZGE1MjMtMGVhMy00ZDRmLThkMjEtNDA5NWY2NzFhMWNhIiBzdFJlZjpkb2N1bWVudElEPSJh
+ZG9iZTpkb2NpZDpwaG90b3Nob3A6YmI0NDBjYWMtMWJkNy0xMWU5LWIxNjUtODAwYmQ2Mjk5ZTZh
+Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQg
+ZW5kPSJyIj8+p3OSbwAAAJNQTFRF4FdFMjIyVYG18LexeHh46IyDrKys2NjY3eTu9vb2RkZG993a
+w8PDWVlZ4mZX7KOb/ff27OzslJSU4uLiaWlp9MrH++7t5HRnhoaG9/j7zs7OoKCgZIu6tsbc5evy
+uLi4f53E5oB1i6bJorfT+ebkytXl7q2n9tTR7vL26piP8sG8cpS/rb/X09zpwM7gl67O////v7nw
+4AAAKEVJREFUeNrs3elCGsvCqGGNCAFxQJyNMSZGM8f7v7odhR7pbqonTNZ+nh/n7G8ZGeXtoroo
+tp4A+M/Z8hAAiDsA4g6AuAMg7gCIO4C4AyDuAIg7AOIOgLgDiDsA4g6AuAMg7gCIOwDiDiDuAIg7
+AOIOgLgDIO4A4g6AuAMg7gCIOwDiDoC4A4g7AOIOgLgDIO4AiDuAuAMg7gCIOwDiDoC4AyDuAOIO
+gLgDIO4AiDsA4g4g7gCIOwDiDoC4AyDuAIg7gLgDIO4AiDsA4g6AuAOIOwDiDoC4AyDuAIg7AOIO
+IO4AiDsA4g6AuAMg7gDiDoC4AyDuAIg7AOIOgLgDiDsA4g6AuAMg7gCIO4C4AyDuAIg7AOIOgLgD
+IO4A4g6AuAMg7gCIOwDiDiDuAIg7AOIOgLgDIO4AiDuAuAMg7gCIOwDiDoC4A4g7AOIOgLgDIO4A
+iDsA4g4g7gCIOwDiDoC4AyDuAOIOgLgDIO4AiDsA4g6AuAOIOwDiDoC4AyDuAIg7gLgDIO4AiDsA
+4g6AuAMg7gDiDoC4AyDuAIg7AOIOIO4AiDsA4g6AuAMg7gCIO4C4AyDuAIg7AOIOgLgDiDsA4g6A
+uAMg7gCIOwDiDiDuAIg7AOIOgLgDIO4A4g6AuAMg7gCIOwDiDoC4A4g7AOIOgLgDIO4AiDuAuAMg
+7gCIOwDiDoC4AyDuAOIOgLgDIO4AiDsA4g4g7gCIOwDiDoC4AyDuAIg7gLgDIO4AiDsA4g6AuAOI
+OwDiDoC4AyDuAIg7AOIOIO4AiDsA4g6AuAMg7gDiDoC4AyDuAIg7AOIOgLgDiDsA4g6AuAMg7gCI
+O4C4AyDuAIg7AOIOgLgDIO4A4g6AuAMg7gCIOwDiDiDuAIg7AOIOgLhTau9xZ+fr7ouvOzvf9u47
+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
+iDuAuAMg7gCIOwDiDoC4AyDuAOIOgLgDIO4AiDsA4g4g7gCIOwDiDoC4AyDuAIg7gLgDIO4AiDsA
+4g6AuAOIOwDiDoC4AyDuAIg7AOIOIO4AiDsA4g6AuAMg7gDiDoC4AyDuAIg7AOIOgLgDiDsA4g6A
+uAMg7gCIO4C4AyDuAIg7AOIOgLgDIO4A4g6AuAMg7gCIOwDiDiDuAIg7AOIOgLgDIO4AiDuAuAMg
+7gCIOwDiDoC4A4g7AOIOgLgDIO4AiDsA4g4g7gCIOwDiDoC4AyDuAOIOgLgDIO4AiDsA4g6AuAOI
+OwDiDoC4AyDuAIg7gLgDIO4AiDsA4g6AuAMg7gDiDoC4AyDuAIg7AOIOIO4AiDsA4g6AuAMg7gDi
+7iEAEHcAxB0AcQdA3AEQdwBxB0DcARB3AMQdAHEHEHcAxB0AcQdA3AEQdwDEHUDcARB3AMQdAHEH
+QNwBxB0AcQdA3AEQdwDEHQBxBxB3AMQdAHEHQNwBEHcAcQdA3AEQdwDEHQBxB0DcAcQdAHEHQNwB
+EHcAxB1A3AEQdwDEHQBxB0DcARB3AHEHQNwBEHcAxB0AcQcQdwDEHQBxB0DcARB3AMQdQNwBEHcA
+xB0AcQdA3AHEHQBxB0DcARB3AMQdAHEHEHcAxB0AcQdA3AEQdwBxB0DcARB3AMQdgHb+J8AAfy4k
+mf/utoMAAAAASUVORK5CYII=
+
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://catonmat.net/images/bash-redirections/initial-fd-table.png
+
+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
+
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://catonmat.net/images/bash-redirections/redirect-stdout.png
+
+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
+TkSuQmCC
+
+------MultipartBoundary--wZJWar08WfVYI44BQIf59fLgAGKrPNFl1ahprdyqV8------

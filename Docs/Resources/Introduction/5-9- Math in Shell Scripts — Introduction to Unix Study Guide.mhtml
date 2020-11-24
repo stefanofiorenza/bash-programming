@@ -1,0 +1,1211 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html
+Subject: =?utf-8?Q?5.9.=20Math=20in=20Shell=20Scripts=20=E2=80=94=20Introduction?=
+ =?utf-8?Q?=20to=20Unix=20Study=20Guide?=
+Date: Thu, 1 Oct 2020 10:50:59 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----"
+
+
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: text/html
+Content-ID: <frame-253297DAB119A3E4BFF98D4EAC7465AE@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta http-equiv=3D"Content-Type" content=3D"text/htm=
+l; charset=3Dwindows-1252">
+   =20
+   =20
+    <title>5.9. Math in Shell Scripts =97 Introduction to Unix Study Guide<=
+/title>
+   =20
+    <link rel=3D"stylesheet" href=3D"http://faculty.salina.k-state.edu/tim/=
+unix_sg/_static/classic.css" type=3D"text/css">
+    <link rel=3D"stylesheet" href=3D"http://faculty.salina.k-state.edu/tim/=
+unix_sg/_static/pygments.css" type=3D"text/css">
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+    <link rel=3D"top" title=3D"Introduction to Unix Study Guide" href=3D"ht=
+tp://faculty.salina.k-state.edu/tim/unix_sg/index.html">
+    <link rel=3D"up" title=3D"5. BASH (Bourne Again Shell)" href=3D"http://=
+faculty.salina.k-state.edu/tim/unix_sg/bash/bash.html">
+    <link rel=3D"next" title=3D"5.10. test" href=3D"http://faculty.salina.k=
+-state.edu/tim/unix_sg/bash/test.html">
+    <link rel=3D"prev" title=3D"5.8. history" href=3D"http://faculty.salina=
+.k-state.edu/tim/unix_sg/bash/history.html">=20
+  </head>
+  <body role=3D"document">
+    <div class=3D"related" role=3D"navigation" aria-label=3D"related naviga=
+tion">
+      <h3>Navigation</h3>
+      <ul>
+        <li class=3D"right" style=3D"margin-right: 10px">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/genindex=
+.html" title=3D"General Index" accesskey=3D"I">index</a></li>
+        <li class=3D"right">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/tes=
+t.html" title=3D"5.10. test" accesskey=3D"N">next</a> |</li>
+        <li class=3D"right">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/his=
+tory.html" title=3D"5.8. history" accesskey=3D"P">previous</a> |</li>
+        <li class=3D"nav-item nav-item-0"><a href=3D"http://faculty.salina.=
+k-state.edu/tim/unix_sg/index.html">Introduction to Unix Study Guide</a> =
+=BB</li>
+          <li class=3D"nav-item nav-item-1"><a href=3D"http://faculty.salin=
+a.k-state.edu/tim/unix_sg/bash/bash.html" accesskey=3D"U">5. BASH (Bourne A=
+gain Shell)</a> =BB</li>=20
+      </ul>
+    </div> =20
+
+    <div class=3D"document">
+      <div class=3D"documentwrapper">
+        <div class=3D"bodywrapper">
+          <div class=3D"body" role=3D"main">
+           =20
+  <table border=3D"1" class=3D"docutils">
+<colgroup>
+<col width=3D"52%">
+<col width=3D"48%">
+</colgroup>
+<tbody valign=3D"top">
+<tr class=3D"row-odd"><td colspan=3D"2"><p class=3D"first last centered">
+<strong>Introduction to Unix</strong></p></td>
+</tr>
+<tr class=3D"row-even"><td><img alt=3D"../_images/ksuPoly1.jpg" class=3D"fi=
+rst last align-left" src=3D"http://faculty.salina.k-state.edu/tim/unix_sg/_=
+images/ksuPoly1.jpg">
+</td>
+<td><img alt=3D"../_images/UNIX_blocks1.jpeg" class=3D"first last align-rig=
+ht" src=3D"http://faculty.salina.k-state.edu/tim/unix_sg/_images/UNIX_block=
+s1.jpeg">
+</td>
+</tr>
+</tbody>
+</table>
+<div class=3D"section" id=3D"math-in-shell-scripts">
+<span id=3D"math"></span><h1>5.9. Math in Shell Scripts<a class=3D"headerli=
+nk" href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html#ma=
+th-in-shell-scripts" title=3D"Permalink to this headline">=C2=B6</a></h1>
+<p id=3D"index-0">Shell script variables are by default treated as strings,=
+ <strong>not numbers</strong>,
+which adds some complexity to doing math in shell script.
+To keep with script programming paradigm and allow for better math support,
+languages such Perl or Python would be better suited when math is desired.
+However, it is possible to do math with shell script.  In fact, over the
+years, multiple facilities have been added to Unix to support working with
+numbers.</p>
+<div class=3D"admonition note">
+<p class=3D"first admonition-title">Note</p>
+<p class=3D"last">As we will see, some of the commands used to facilitate m=
+ath are a little
+picky about things like spaces around operators.</p>
+</div>
+<div class=3D"section" id=3D"declare">
+<h2>5.9.1. <strong class=3D"command">declare</strong><a class=3D"headerlink=
+" href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html#decl=
+are" title=3D"Permalink to this headline">=C2=B6</a></h2>
+<p>You may recall, that when the text book introduced the <strong class=3D"=
+command">declare</strong>
+statement, it said that it is not always needed.  So what do you get by
+declaring a variable to be an integer?  The following example illustrates
+that a declared integer is not treated as a string.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$ n=3D6/3
+$ echo $n
+6/3
+$ declare -i n
+$ n=3D6/3
+$ echo $n
+2
+</pre></div>
+</div>
+<p>When you do not need the <strong class=3D"command">declare</strong> stat=
+ement is when you will use a
+program or built-in command to evaluate a math statement.</p>
+</div>
+<div class=3D"section" id=3D"expr">
+<h2>5.9.2. <strong class=3D"command">expr</strong><a class=3D"headerlink" h=
+ref=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html#expr" t=
+itle=3D"Permalink to this headline">=C2=B6</a></h2>
+<p>An old Unix program that can evaluate math is <strong class=3D"command">=
+expr</strong>.
+<strong class=3D"command">expr</strong> became popular in the days of the B=
+ourne Shell, which did
+not support math.  With Bash and Korn shell, it is generally not needed.
+Since it is a command, command substitution is needed.  We are still
+treating the variable as a string.  As you can see, it is picky about space=
+s.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$ z=3D5
+$ z=3D`expr $z+1`   ---- Need spaces around + sign.
+$ echo $z
+5+1
+$ z=3D`expr $z + 1`
+$ echo $z
+6
+</pre></div>
+</div>
+</div>
+<div class=3D"section" id=3D"let">
+<h2>5.9.3. <strong class=3D"command">let</strong><a class=3D"headerlink" hr=
+ef=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html#let" tit=
+le=3D"Permalink to this headline">=C2=B6</a></h2>
+<p>A Bash and Korn shell built-in command for math is <strong class=3D"comm=
+and">let</strong>.  As you
+can see, it is also a little picky about spaces, but it wants the opposite =
+of
+what <strong class=3D"command">expr</strong> wanted.  <strong class=3D"comm=
+and">let</strong> also relaxes the normal rule of
+needing a $ in front of variables to be read.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$ let z=3D5
+$ echo $z
+5
+$ let z=3D$z+1
+$ echo $z
+6
+$ let z=3D$z + 1     # --- Spaces around + sign are bad with let
+-bash: let: +: syntax error: operand expected (error token is "+")
+
+$let z=3Dz+1         # --- look Mom, no $ to read a variable.
+$echo $z
+7
+</pre></div>
+</div>
+</div>
+<div class=3D"section" id=3D"bash-arithmetic">
+<h2>5.9.4. BASH Arithmetic<a class=3D"headerlink" href=3D"http://faculty.sa=
+lina.k-state.edu/tim/unix_sg/bash/math.html#bash-arithmetic" title=3D"Perma=
+link to this headline">=C2=B6</a></h2>
+<p>With the BASH shell, whole arithmetic expressions may be placed inside
+double parenthesis.  This form is more forgiving about spaces.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$ ((e=3D5))
+$ echo $e
+5
+$ (( e =3D e + 3 ))
+$ echo $e
+8
+$ (( e=3De+4 ))  # -- spaces or no spaces, it doesn't matter
+$ echo $e
+12
+</pre></div>
+</div>
+<table border=3D"1" class=3D"docutils" id=3D"id2">
+<caption><span class=3D"caption-text"><strong>Arithmetic Operators</strong>=
+</span><a class=3D"headerlink" href=3D"http://faculty.salina.k-state.edu/ti=
+m/unix_sg/bash/math.html#id2" title=3D"Permalink to this table">=C2=B6</a><=
+/caption>
+<colgroup>
+<col width=3D"25%">
+<col width=3D"75%">
+</colgroup>
+<tbody valign=3D"top">
+<tr class=3D"row-odd"><td><code class=3D"docutils literal"><span class=3D"p=
+re">+</span> <span class=3D"pre">-</span></code></td>
+<td>Addition, subtration</td>
+</tr>
+<tr class=3D"row-even"><td><code class=3D"docutils literal"><span class=3D"=
+pre">++</span> <span class=3D"pre">--</span></code></td>
+<td>Increment, decrement</td>
+</tr>
+<tr class=3D"row-odd"><td><code class=3D"docutils literal"><span class=3D"p=
+re">*</span> <span class=3D"pre">/</span> <span class=3D"pre">%</span></cod=
+e></td>
+<td>Multiplication, division, remainder</td>
+</tr>
+<tr class=3D"row-even"><td><code class=3D"docutils literal"><span class=3D"=
+pre">**</span></code></td>
+<td>Exponentiation</td>
+</tr>
+</tbody>
+</table>
+<p>Numerical boolean expressions in <a class=3D"reference internal" href=3D=
+"http://faculty.salina.k-state.edu/tim/unix_sg/bash/control.html#control"><=
+span class=3D"std std-ref">Control Constructs</span></a> are also expressed=
+ using
+double parenthesis.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre><span class=
+=3D"k">if</span> <span class=3D"p">((</span> <span class=3D"n">x</span> <sp=
+an class=3D"o">&gt;</span> <span class=3D"n">y</span> <span class=3D"p">));=
+</span> <span class=3D"n">then</span>
+    <span class=3D"n">echo</span> <span class=3D"s">"x &gt; y"</span>
+<span class=3D"n">fi</span>
+</pre></div>
+</div>
+<table border=3D"1" class=3D"docutils" id=3D"id3">
+<caption><span class=3D"caption-text"><strong>Logical and Boolean Operators=
+</strong></span><a class=3D"headerlink" href=3D"http://faculty.salina.k-sta=
+te.edu/tim/unix_sg/bash/math.html#id3" title=3D"Permalink to this table">=
+=C2=B6</a></caption>
+<colgroup>
+<col width=3D"20%">
+<col width=3D"80%">
+</colgroup>
+<tbody valign=3D"top">
+<tr class=3D"row-odd"><td><code class=3D"docutils literal"><span class=3D"p=
+re">&lt;=3D</span> <span class=3D"pre">&gt;=3D</span> <span class=3D"pre">&=
+lt;</span> <span class=3D"pre">&gt;</span></code></td>
+<td>Less than or equal, greater than or equal, less than, greater than</td>
+</tr>
+<tr class=3D"row-even"><td><code class=3D"docutils literal"><span class=3D"=
+pre">=3D=3D</span> <span class=3D"pre">!=3D</span></code></td>
+<td>Equal, not equal</td>
+</tr>
+<tr class=3D"row-odd"><td><code class=3D"docutils literal"><span class=3D"p=
+re">!</span></code></td>
+<td>Logical NOT</td>
+</tr>
+<tr class=3D"row-even"><td><code class=3D"docutils literal"><span class=3D"=
+pre">&amp;&amp;</span></code></td>
+<td>Logical AND</td>
+</tr>
+<tr class=3D"row-odd"><td><code class=3D"docutils literal"><span class=3D"p=
+re">||</span></code></td>
+<td>Logical OR</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"section" id=3D"bc">
+<span id=3D"id1"></span><h2>5.9.5. <strong class=3D"command">bc</strong><a =
+class=3D"headerlink" href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/=
+bash/math.html#bc" title=3D"Permalink to this headline">=C2=B6</a></h2>
+<p id=3D"index-1">What if you want to do math with floating point numbers o=
+r you have some
+fairly complicated math to do?  Neither form of let, supports floating
+point numbers.  The bc command is needed.  But you have to treat the
+variables as strings.</p>
+<p>Here is what happens when we try to do floating point math with the
+shell:</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$let r=3D3.5
+-bash: let: r=3D3.5: syntax error in expression (error token is ".5")
+$(( r =3D 3.5 ))
+-bash: ((: r =3D 3.5 : syntax error in expression (error token is ".5 ")
+</pre></div>
+</div>
+<dl class=3D"describe">
+<dt>
+<code class=3D"descname">bc</code></dt>
+<dd><p>An arbitrary precision calculator language.  <strong class=3D"comman=
+d">bc</strong> may either be
+run interactively, or as a shell script command.  In interactive mode,
+type cntrl-d (EOF) to exit.</p>
+</dd></dl>
+
+<p>SYNOPSIS</p>
+<blockquote>
+<div><p><strong class=3D"command">bc</strong></p>
+<p><strong class=3D"command">bc</strong> EXPRESSION</p>
+</div></blockquote>
+<p>Here are some examples:</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$ bc
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+3 + 2
+5
+obase=3D2
+12
+1100
+&lt;cntrl-d&gt;
+</pre></div>
+</div>
+<p>Remember to type cntrl-d (EOF) to exit from interactive mode.</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>$r=3D3.5
+$s=3D`echo "$r + 2.2" | bc`
+$echo $s
+5.7
+
+$ z =3D `echo $z + 1 | bc`
+-bash: z: command not found
+                # -- spaces around =3D sign are bad
+                                (shell thing, not bc)
+
+$ z=3D`echo "$z + 1" | bc`
+$ echo $z
+8
+$ z=3D`echo "$z+1" | bc`  -- spaces don't matter with bc
+$ echo $z
+9
+</pre></div>
+</div>
+</div>
+<div class=3D"section" id=3D"numeric-boolean-expressions">
+<span id=3D"numerictest"></span><h2>5.9.6. Numeric Boolean expressions<a cl=
+ass=3D"headerlink" href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/ba=
+sh/math.html#numeric-boolean-expressions" title=3D"Permalink to this headli=
+ne">=C2=B6</a></h2>
+<p id=3D"index-2">If BASH double parenthesis are not used, then the
+<strong class=3D"command">test</strong> command must be used to compare int=
+eger variables.
+See <a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/test.html#test"><span class=3D"std std-ref">test</span>=
+</a>.</p>
+<blockquote>
+<div><dl class=3D"docutils">
+<dt>INTEGER1 -eq INTEGER2</dt>
+<dd>INTEGER1 is equal to INTEGER2</dd>
+<dt>INTEGER1 -ge INTEGER2</dt>
+<dd>INTEGER1 is greater than or equal to INTEGER2</dd>
+<dt>INTEGER1 -gt INTEGER2</dt>
+<dd>INTEGER1 is greater than INTEGER2</dd>
+<dt>INTEGER1 -le INTEGER2</dt>
+<dd>INTEGER1 is less than or equal to INTEGER2</dd>
+<dt>INTEGER1 -lt INTEGER2</dt>
+<dd>INTEGER1 is less than INTEGER2</dd>
+<dt>INTEGER1 -ne INTEGER2</dt>
+<dd>INTEGER1 is not equal to INTEGER2</dd>
+</dl>
+</div></blockquote>
+<p>That is to say, the following two <code class=3D"kbd docutils literal"><=
+span class=3D"pre">if</span></code> statements are identical:</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>if (( x &lt;=
+ y )); then
+    statements
+fi
+
+if [ $x -lt $y ]; then
+    statements
+fi
+</pre></div>
+</div>
+<p>And for logical expressions using floating point math, the <strong class=
+=3D"command">bc</strong>
+command returns 1 for logical true expressions and 0 for false expressions,
+thus testing for result of 1 achieves a logical expression:</p>
+<div class=3D"highlight-default"><div class=3D"highlight"><pre>if [ $( echo=
+ "$t &lt; 3.4" | bc ) -eq 1 ]; then
+    statements
+fi
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class=3D"sphinxsidebar" role=3D"navigation" aria-label=3D"main n=
+avigation">
+        <div class=3D"sphinxsidebarwrapper" style=3D"float: left; margin-ri=
+ght: 0px; width: 202px;">
+            <p class=3D"logo"><a href=3D"http://faculty.salina.k-state.edu/=
+tim/unix_sg/index.html">
+              <img class=3D"logo" src=3D"http://faculty.salina.k-state.edu/=
+tim/unix_sg/_static/ksuPoly.jpg" alt=3D"Logo">
+            </a></p>
+  <h3><a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/index.html">=
+Table Of Contents</a></h3>
+  <ul>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#">5.9. Math in Shell Scripts</a><ul>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#declare">5.9.1. <strong class=3D"command">dec=
+lare</strong></a></li>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#expr">5.9.2. <strong class=3D"command">expr</=
+strong></a></li>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#let">5.9.3. <strong class=3D"command">let</st=
+rong></a></li>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#bash-arithmetic">5.9.4. BASH Arithmetic</a></=
+li>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#bc">5.9.5. <strong class=3D"command">bc</stro=
+ng></a></li>
+<li><a class=3D"reference internal" href=3D"http://faculty.salina.k-state.e=
+du/tim/unix_sg/bash/math.html#numeric-boolean-expressions">5.9.6. Numeric B=
+oolean expressions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class=3D"topless"><a href=3D"http://faculty.salina.k-state.edu/tim/uni=
+x_sg/bash/history.html" title=3D"previous chapter">5.8. <strong class=3D"co=
+mmand">history</strong></a></p>
+  <h4>Next topic</h4>
+  <p class=3D"topless"><a href=3D"http://faculty.salina.k-state.edu/tim/uni=
+x_sg/bash/test.html" title=3D"next chapter">5.10. <strong class=3D"command"=
+>test</strong></a></p>
+  <div role=3D"note" aria-label=3D"source link">
+    <h3>This Page</h3>
+    <ul class=3D"this-page-menu">
+      <li><a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/_sources=
+/bash/math.txt" rel=3D"nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id=3D"searchbox" style=3D"" role=3D"search">
+  <h3>Quick search</h3>
+    <form class=3D"search" action=3D"http://faculty.salina.k-state.edu/tim/=
+unix_sg/search.html" method=3D"get">
+      <div><input type=3D"text" name=3D"q"></div>
+      <div><input type=3D"submit" value=3D"Go"></div>
+     =20
+     =20
+    </form>
+</div>
+
+        </div>
+      <div id=3D"sidebarbutton" title=3D"Collapse sidebar" style=3D"color: =
+rgb(255, 255, 255); border-left: 1px solid rgb(81, 40, 136); font-size: 1.2=
+em; cursor: pointer; height: 3371px; padding-top: 1px; margin-left: 218px;"=
+><span style=3D"display: block; margin-top: 479px;">=AB</span></div></div>
+      <div class=3D"clearer"></div>
+    </div>
+    <div class=3D"related" role=3D"navigation" aria-label=3D"related naviga=
+tion">
+      <h3>Navigation</h3>
+      <ul>
+        <li class=3D"right" style=3D"margin-right: 10px">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/genindex=
+.html" title=3D"General Index">index</a></li>
+        <li class=3D"right">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/tes=
+t.html" title=3D"5.10. test">next</a> |</li>
+        <li class=3D"right">
+          <a href=3D"http://faculty.salina.k-state.edu/tim/unix_sg/bash/his=
+tory.html" title=3D"5.8. history">previous</a> |</li>
+        <li class=3D"nav-item nav-item-0"><a href=3D"http://faculty.salina.=
+k-state.edu/tim/unix_sg/index.html">Introduction to Unix Study Guide</a> =
+=BB</li>
+          <li class=3D"nav-item nav-item-1"><a href=3D"http://faculty.salin=
+a.k-state.edu/tim/unix_sg/bash/bash.html">5. BASH (Bourne Again Shell)</a> =
+=BB</li>=20
+      </ul>
+    </div>
+    <div class=3D"footer" role=3D"contentinfo">
+        =A9 Copyright 2009 to 2015, Tim Bower.
+      Created using <a href=3D"http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+ =20
+</body></html>
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_static/classic.css
+
+@charset "windows-1252";
+
+@import url("basic.css");
+
+body { font-family: sans-serif; font-size: 100%; background-color: rgb(81, =
+40, 136); color: rgb(0, 0, 0); margin: 0px; padding: 0px; }
+
+div.document { background-color: rgb(81, 40, 136); }
+
+div.documentwrapper { float: left; width: 100%; }
+
+div.bodywrapper { margin: 0px 0px 0px 230px; }
+
+div.body { background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); paddi=
+ng: 0px 20px 30px; }
+
+div.footer { color: rgb(255, 255, 255); width: 100%; padding: 9px 0px; text=
+-align: center; font-size: 75%; }
+
+div.footer a { color: rgb(255, 255, 255); text-decoration: underline; }
+
+div.related { background-color: rgb(81, 40, 136); line-height: 30px; color:=
+ rgb(255, 255, 255); }
+
+div.related a { color: rgb(255, 255, 255); }
+
+div.sphinxsidebar { }
+
+div.sphinxsidebar h3 { font-family: "Trebuchet MS", sans-serif; color: rgb(=
+255, 255, 255); font-size: 1.4em; font-weight: normal; margin: 0px; padding=
+: 0px; }
+
+div.sphinxsidebar h3 a { color: rgb(255, 255, 255); }
+
+div.sphinxsidebar h4 { font-family: "Trebuchet MS", sans-serif; color: rgb(=
+255, 255, 255); font-size: 1.3em; font-weight: normal; margin: 5px 0px 0px;=
+ padding: 0px; }
+
+div.sphinxsidebar p { color: rgb(255, 255, 255); }
+
+div.sphinxsidebar p.topless { margin: 5px 10px 10px; }
+
+div.sphinxsidebar ul { margin: 10px; padding: 0px; color: rgb(255, 255, 255=
+); }
+
+div.sphinxsidebar a { color: rgb(152, 219, 204); }
+
+div.sphinxsidebar input { border: 1px solid rgb(152, 219, 204); font-family=
+: sans-serif; font-size: 1em; }
+
+div#sidebarbutton { background-color: rgb(60, 110, 131); }
+
+a { color: rgb(53, 95, 124); text-decoration: none; }
+
+a:visited { color: rgb(53, 95, 124); text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+div.body h1, div.body h2, div.body h3, div.body h4, div.body h5, div.body h=
+6 { font-family: "Trebuchet MS", sans-serif; background-color: rgb(242, 242=
+, 242); font-weight: normal; color: rgb(32, 67, 92); border-bottom: 1px sol=
+id rgb(204, 204, 204); margin: 20px -20px 10px; padding: 3px 0px 3px 10px; =
+}
+
+div.body h1 { margin-top: 0px; font-size: 200%; }
+
+div.body h2 { font-size: 160%; }
+
+div.body h3 { font-size: 140%; }
+
+div.body h4 { font-size: 120%; }
+
+div.body h5 { font-size: 110%; }
+
+div.body h6 { font-size: 100%; }
+
+a.headerlink { color: rgb(198, 15, 15); font-size: 0.8em; padding: 0px 4px;=
+ text-decoration: none; }
+
+a.headerlink:hover { background-color: rgb(198, 15, 15); color: white; }
+
+div.body p, div.body dd, div.body li, div.body blockquote { text-align: jus=
+tify; line-height: 130%; }
+
+div.admonition p.admonition-title + p { display: inline; }
+
+div.admonition p { margin-bottom: 5px; }
+
+div.admonition pre { margin-bottom: 5px; }
+
+div.admonition ul, div.admonition ol { margin-bottom: 5px; }
+
+div.note { background-color: rgb(238, 238, 238); border: 1px solid rgb(204,=
+ 204, 204); }
+
+div.seealso { background-color: rgb(255, 255, 204); border: 1px solid rgb(2=
+55, 255, 102); }
+
+div.topic { background-color: rgb(238, 238, 238); }
+
+div.warning { background-color: rgb(255, 228, 228); border: 1px solid rgb(2=
+55, 102, 102); }
+
+p.admonition-title { display: inline; }
+
+p.admonition-title::after { content: ":"; }
+
+pre { padding: 5px; background-color: rgb(238, 255, 204); color: rgb(51, 51=
+, 51); line-height: 120%; border-top: 1px solid rgb(170, 204, 153); border-=
+bottom: 1px solid rgb(170, 204, 153); border-image: initial; border-left: n=
+one; border-right: none; }
+
+code { background-color: rgb(236, 240, 243); padding: 0px 1px; font-size: 0=
+.95em; }
+
+th { background-color: rgb(238, 221, 238); }
+
+.warning code { background: rgb(239, 194, 194); }
+
+.note code { background: rgb(214, 214, 214); }
+
+.viewcode-back { font-family: sans-serif; }
+
+div.viewcode-block:target { background-color: rgb(244, 222, 191); border-to=
+p: 1px solid rgb(170, 204, 153); border-bottom: 1px solid rgb(170, 204, 153=
+); }
+
+div.code-block-caption { color: rgb(239, 239, 239); background-color: rgb(2=
+8, 78, 99); }
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_static/basic.css
+
+@charset "windows-1252";
+
+div.clearer { clear: both; }
+
+div.related { width: 100%; font-size: 90%; }
+
+div.related h3 { display: none; }
+
+div.related ul { margin: 0px; padding: 0px 0px 0px 10px; list-style: none; =
+}
+
+div.related li { display: inline; }
+
+div.related li.right { float: right; margin-right: 5px; }
+
+div.sphinxsidebarwrapper { padding: 10px 5px 0px 10px; }
+
+div.sphinxsidebar { float: left; width: 230px; margin-left: -100%; font-siz=
+e: 90%; overflow-wrap: break-word; }
+
+div.sphinxsidebar ul { list-style: none; }
+
+div.sphinxsidebar ul ul, div.sphinxsidebar ul.want-points { margin-left: 20=
+px; list-style: square; }
+
+div.sphinxsidebar ul ul { margin-top: 0px; margin-bottom: 0px; }
+
+div.sphinxsidebar form { margin-top: 10px; }
+
+div.sphinxsidebar input { border: 1px solid rgb(152, 219, 204); font-family=
+: sans-serif; font-size: 1em; }
+
+div.sphinxsidebar #searchbox input[type=3D"text"] { width: 170px; }
+
+img { border: 0px; max-width: 100%; }
+
+ul.search { margin: 10px 0px 0px 20px; padding: 0px; }
+
+ul.search li { padding: 5px 0px 5px 20px; background-image: url("file.png")=
+; background-repeat: no-repeat; background-position: 0px 7px; }
+
+ul.search li a { font-weight: bold; }
+
+ul.search li div.context { color: rgb(136, 136, 136); margin: 2px 0px 0px 3=
+0px; text-align: left; }
+
+ul.keywordmatches li.goodmatch a { font-weight: bold; }
+
+table.contentstable { width: 90%; }
+
+table.contentstable p.biglink { line-height: 150%; }
+
+a.biglink { font-size: 1.3em; }
+
+span.linkdescr { font-style: italic; padding-top: 5px; font-size: 90%; }
+
+table.indextable { width: 100%; }
+
+table.indextable td { text-align: left; vertical-align: top; }
+
+table.indextable dl, table.indextable dd { margin-top: 0px; margin-bottom: =
+0px; }
+
+table.indextable tr.pcap { height: 10px; }
+
+table.indextable tr.cap { margin-top: 10px; background-color: rgb(242, 242,=
+ 242); }
+
+img.toggler { margin-right: 3px; margin-top: 3px; cursor: pointer; }
+
+div.modindex-jumpbox { border-top: 1px solid rgb(221, 221, 221); border-bot=
+tom: 1px solid rgb(221, 221, 221); margin: 1em 0px; padding: 0.4em; }
+
+div.genindex-jumpbox { border-top: 1px solid rgb(221, 221, 221); border-bot=
+tom: 1px solid rgb(221, 221, 221); margin: 1em 0px; padding: 0.4em; }
+
+div.body p, div.body dd, div.body li, div.body blockquote { }
+
+a.headerlink { visibility: hidden; }
+
+h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink, =
+h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink, =
+dt:hover > a.headerlink, caption:hover > a.headerlink, p.caption:hover > a.=
+headerlink, div.code-block-caption:hover > a.headerlink { visibility: visib=
+le; }
+
+div.body p.caption { text-align: inherit; }
+
+div.body td { text-align: left; }
+
+.field-list ul { padding-left: 1em; }
+
+.first { margin-top: 0px !important; }
+
+p.rubric { margin-top: 30px; font-weight: bold; }
+
+img.align-left, .figure.align-left, object.align-left { clear: left; float:=
+ left; margin-right: 1em; }
+
+img.align-right, .figure.align-right, object.align-right { clear: right; fl=
+oat: right; margin-left: 1em; }
+
+img.align-center, .figure.align-center, object.align-center { display: bloc=
+k; margin-left: auto; margin-right: auto; }
+
+.align-left { text-align: left; }
+
+.align-center { text-align: center; }
+
+.align-right { text-align: right; }
+
+div.sidebar { margin: 0px 0px 0.5em 1em; border: 1px solid rgb(221, 221, 18=
+7); padding: 7px 7px 0px; background-color: rgb(255, 255, 238); width: 40%;=
+ float: right; }
+
+p.sidebar-title { font-weight: bold; }
+
+div.topic { border: 1px solid rgb(204, 204, 204); padding: 7px 7px 0px; mar=
+gin: 10px 0px; }
+
+p.topic-title { font-size: 1.1em; font-weight: bold; margin-top: 10px; }
+
+div.admonition { margin-top: 10px; margin-bottom: 10px; padding: 7px; }
+
+div.admonition dt { font-weight: bold; }
+
+div.admonition dl { margin-bottom: 0px; }
+
+p.admonition-title { margin: 0px 10px 5px 0px; font-weight: bold; }
+
+div.body p.centered { text-align: center; margin-top: 25px; }
+
+table.docutils { border: 0px; border-collapse: collapse; }
+
+table caption span.caption-number { font-style: italic; }
+
+table caption span.caption-text { }
+
+table.docutils td, table.docutils th { padding: 1px 8px 1px 5px; border-wid=
+th: 0px 0px 1px; border-top-style: initial; border-top-color: initial; bord=
+er-left-style: initial; border-left-color: initial; border-right-style: ini=
+tial; border-right-color: initial; border-bottom-style: solid; border-botto=
+m-color: rgb(170, 170, 170); }
+
+table.field-list td, table.field-list th { border: 0px !important; }
+
+table.footnote td, table.footnote th { border: 0px !important; }
+
+th { text-align: left; padding-right: 5px; }
+
+table.citation { border-left: 1px solid gray; margin-left: 1px; }
+
+table.citation td { border-bottom: none; }
+
+div.figure { margin: 0.5em; padding: 0.5em; }
+
+div.figure p.caption { padding: 0.3em; }
+
+div.figure p.caption span.caption-number { font-style: italic; }
+
+div.figure p.caption span.caption-text { }
+
+ol.arabic { list-style: decimal; }
+
+ol.loweralpha { list-style: lower-alpha; }
+
+ol.upperalpha { list-style: upper-alpha; }
+
+ol.lowerroman { list-style: lower-roman; }
+
+ol.upperroman { list-style: upper-roman; }
+
+dl { margin-bottom: 15px; }
+
+dd p { margin-top: 0px; }
+
+dd ul, dd table { margin-bottom: 10px; }
+
+dd { margin-top: 3px; margin-bottom: 10px; margin-left: 30px; }
+
+dt:target, .highlighted { background-color: rgb(251, 229, 78); }
+
+dl.glossary dt { font-weight: bold; font-size: 1.1em; }
+
+.field-list ul { margin: 0px; padding-left: 1em; }
+
+.field-list p { margin: 0px; }
+
+.optional { font-size: 1.3em; }
+
+.sig-paren { font-size: larger; }
+
+.versionmodified { font-style: italic; }
+
+.system-message { background-color: rgb(255, 221, 170); padding: 5px; borde=
+r: 3px solid red; }
+
+.footnote:target { background-color: rgb(255, 255, 170); }
+
+.line-block { display: block; margin-top: 1em; margin-bottom: 1em; }
+
+.line-block .line-block { margin-top: 0px; margin-bottom: 0px; margin-left:=
+ 1.5em; }
+
+.guilabel, .menuselection { font-family: sans-serif; }
+
+.accelerator { text-decoration: underline; }
+
+.classifier { font-style: oblique; }
+
+abbr, acronym { border-bottom: 1px dotted; cursor: help; }
+
+pre { overflow: auto hidden; }
+
+td.linenos pre { padding: 5px 0px; border: 0px; background-color: transpare=
+nt; color: rgb(170, 170, 170); }
+
+table.highlighttable { margin-left: 0.5em; }
+
+table.highlighttable td { padding: 0px 0.5em; }
+
+div.code-block-caption { padding: 2px 5px; font-size: small; }
+
+div.code-block-caption code { background-color: transparent; }
+
+div.code-block-caption + div > div.highlight > pre { margin-top: 0px; }
+
+div.code-block-caption span.caption-number { padding: 0.1em 0.3em; font-sty=
+le: italic; }
+
+div.code-block-caption span.caption-text { }
+
+div.literal-block-wrapper { padding: 1em 1em 0px; }
+
+div.literal-block-wrapper div.highlight { margin: 0px; }
+
+code.descname { background-color: transparent; font-weight: bold; font-size=
+: 1.2em; }
+
+code.descclassname { background-color: transparent; }
+
+code.xref, a code { background-color: transparent; font-weight: bold; }
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { background-color: tr=
+ansparent; }
+
+.viewcode-link { float: right; }
+
+.viewcode-back { float: right; font-family: sans-serif; }
+
+div.viewcode-block:target { margin: -1px -10px; padding: 0px 10px; }
+
+img.math { vertical-align: middle; }
+
+div.body div.math p { text-align: center; }
+
+span.eqno { float: right; }
+
+@media print {
+  div.document, div.documentwrapper, div.bodywrapper { width: 100%; margin:=
+ 0px !important; }
+  div.sphinxsidebar, div.related, div.footer, #top-link { display: none; }
+}
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_static/pygments.css
+
+@charset "windows-1252";
+
+.highlight .hll { background-color: rgb(255, 255, 204); }
+
+.highlight { background: rgb(238, 255, 204); }
+
+.highlight .c { color: rgb(64, 128, 144); font-style: italic; }
+
+.highlight .err { border: 1px solid rgb(255, 0, 0); }
+
+.highlight .k { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .o { color: rgb(102, 102, 102); }
+
+.highlight .cm { color: rgb(64, 128, 144); font-style: italic; }
+
+.highlight .cp { color: rgb(0, 112, 32); }
+
+.highlight .c1 { color: rgb(64, 128, 144); font-style: italic; }
+
+.highlight .cs { color: rgb(64, 128, 144); background-color: rgb(255, 240, =
+240); }
+
+.highlight .gd { color: rgb(160, 0, 0); }
+
+.highlight .ge { font-style: italic; }
+
+.highlight .gr { color: rgb(255, 0, 0); }
+
+.highlight .gh { color: rgb(0, 0, 128); font-weight: bold; }
+
+.highlight .gi { color: rgb(0, 160, 0); }
+
+.highlight .go { color: rgb(51, 51, 51); }
+
+.highlight .gp { color: rgb(198, 93, 9); font-weight: bold; }
+
+.highlight .gs { font-weight: bold; }
+
+.highlight .gu { color: rgb(128, 0, 128); font-weight: bold; }
+
+.highlight .gt { color: rgb(0, 68, 221); }
+
+.highlight .kc { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .kd { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .kn { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .kp { color: rgb(0, 112, 32); }
+
+.highlight .kr { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .kt { color: rgb(144, 32, 0); }
+
+.highlight .m { color: rgb(32, 128, 80); }
+
+.highlight .s { color: rgb(64, 112, 160); }
+
+.highlight .na { color: rgb(64, 112, 160); }
+
+.highlight .nb { color: rgb(0, 112, 32); }
+
+.highlight .nc { color: rgb(14, 132, 181); font-weight: bold; }
+
+.highlight .no { color: rgb(96, 173, 213); }
+
+.highlight .nd { color: rgb(85, 85, 85); font-weight: bold; }
+
+.highlight .ni { color: rgb(213, 85, 55); font-weight: bold; }
+
+.highlight .ne { color: rgb(0, 112, 32); }
+
+.highlight .nf { color: rgb(6, 40, 126); }
+
+.highlight .nl { color: rgb(0, 32, 112); font-weight: bold; }
+
+.highlight .nn { color: rgb(14, 132, 181); font-weight: bold; }
+
+.highlight .nt { color: rgb(6, 40, 115); font-weight: bold; }
+
+.highlight .nv { color: rgb(187, 96, 213); }
+
+.highlight .ow { color: rgb(0, 112, 32); font-weight: bold; }
+
+.highlight .w { color: rgb(187, 187, 187); }
+
+.highlight .mb { color: rgb(32, 128, 80); }
+
+.highlight .mf { color: rgb(32, 128, 80); }
+
+.highlight .mh { color: rgb(32, 128, 80); }
+
+.highlight .mi { color: rgb(32, 128, 80); }
+
+.highlight .mo { color: rgb(32, 128, 80); }
+
+.highlight .sb { color: rgb(64, 112, 160); }
+
+.highlight .sc { color: rgb(64, 112, 160); }
+
+.highlight .sd { color: rgb(64, 112, 160); font-style: italic; }
+
+.highlight .s2 { color: rgb(64, 112, 160); }
+
+.highlight .se { color: rgb(64, 112, 160); font-weight: bold; }
+
+.highlight .sh { color: rgb(64, 112, 160); }
+
+.highlight .si { color: rgb(112, 160, 208); font-style: italic; }
+
+.highlight .sx { color: rgb(198, 93, 9); }
+
+.highlight .sr { color: rgb(35, 83, 136); }
+
+.highlight .s1 { color: rgb(64, 112, 160); }
+
+.highlight .ss { color: rgb(81, 121, 24); }
+
+.highlight .bp { color: rgb(0, 112, 32); }
+
+.highlight .vc { color: rgb(187, 96, 213); }
+
+.highlight .vg { color: rgb(187, 96, 213); }
+
+.highlight .vi { color: rgb(187, 96, 213); }
+
+.highlight .il { color: rgb(32, 128, 80); }
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_images/ksuPoly1.jpg
+
+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
+ICAgICAgICAg
+
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_images/UNIX_blocks1.jpeg
+
+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
+ueddFFAn/9k=
+
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://faculty.salina.k-state.edu/tim/unix_sg/_static/ksuPoly.jpg
+
+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
+ICAgICAgICAg
+
+------MultipartBoundary--8nuQY2dbe8Cu4VissoXyIcBocg3vwVFtYuustAIgDm------

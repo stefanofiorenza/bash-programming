@@ -1,0 +1,87 @@
+OS:
+
+	https://www.guru99.com/operating-system-tutorial.html
+
+
+
+TUTORIALS:
+
+	Intro:
+	SheBang
+	https://linuxize.com/post/bash-shebang/
+
+	Conditionals:
+	https://www.baeldung.com/linux/conditional-expressions-shell-script
+	https://www.mssqltips.com/sqlservertip/5803/introduction-to-bash-scripting-conditional-statements/
+	
+	Case:
+	https://linuxize.com/post/bash-case-statement/
+	
+	To recheck
+	http://www.softpanorama.org/Scripting/Shellorama/Control_structures/if_statements.shtml
+	https://tldp.org/LDP/abs/html/testconstructs.html
+	https://tldp.org/LDP/abs/html/fto.html
+	https://tldp.org/LDP/abs/html/comparison-ops.html
+	http://mywiki.wooledge.org/BashFAQ/031
+	
+	Brackets:
+	https://www.assertnotmagic.com/2018/06/20/bash-brackets-quick-reference/
+	
+
+
+	Loops:
+	https://linuxconfig.org/bash-loops-with-examples
+	https://linuxize.com/post/bash-for-loop/
+	https://www.shellscript.sh/loops.html
+	https://www.thegeekstuff.com/2011/07/bash-for-loop-examples/
+	
+	While Loops
+	https://linuxize.com/post/bash-while-loop/
+	https://linuxize.com/post/bash-until-loop/
+
+
+	Arrays:
+	https://www.thegeekstuff.com/2010/06/bash-array-tutorial/
+
+
+	Strings:
+	https://linuxhint.com/bash_string_manipulation/
+	https://www.baeldung.com/linux/bash-string-manipulation
+	https://tldp.org/LDP/abs/html/string-manipulation.html
+	https://www.thegeekstuff.com/2010/07/bash-string-manipulation/
+	
+	Strings.tr
+	https://linuxhint.com/bash_tr_command/
+	https://www.tecmint.com/tr-command-examples-in-linux/
+	
+	
+	Printf and Formatting:
+	https://linuxize.com/post/bash-printf-command/
+
+
+	Functions:
+	https://linuxize.com/post/bash-functions/
+	
+	
+
+	BUILT IN:
+	https://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/
+	
+
+GUIDES:
+
+	Terminal commands
+	https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je
+
+	All in one
+	https://medium.com/sysf/bash-scripting-everything-you-need-to-know-about-bash-shell-programming-cd08595f2fba
+
+	Official reference:
+	https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html
+
+	Reference:
+	https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html
+
+LABS:
+
+https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html

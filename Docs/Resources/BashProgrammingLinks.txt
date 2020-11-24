@@ -1,0 +1,10 @@
+
+
+Intro:
+https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_04.html
+
+Run and Debug
+https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_03.html
+
+Brackets
+https://www.assertnotmagic.com/2018/06/20/bash-brackets-quick-reference/

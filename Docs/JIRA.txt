@@ -1,0 +1,57 @@
+
+From Syntax Reference:
+https://medium.com/sysf/bash-scripting-everything-you-need-to-know-about-bash-shell-programming-cd08595f2fba
+
+
+Setup Env:
+- Linux WSL Installed
+- sudo privileges and pw set
+- sharing files:
+
+Execution
+- Bash Interpreter
+- Kernel Api and binaries
+- alias and .bash_profile file
+
+First Code:
+- standard input/output (read, echo)
+- Debugging Technics
+
+
+Variables And Operators:
+
+	- type 
+	- operators
+	- arithmetic
+	- string interpolation
+	- expression evaluation $()
+
+Conditional Logic (if..else)
+	- test command
+	- if [  ]
+	- if [ ( EXPR ) ]
+	- elif
+	- nested
+	- test primary expressions:
+	https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+	- Switch Case
+	
+
+Loops:
+	- for 
+	- while 
+	- until
+
+Arrays:
+	- Create
+	- Read/Write
+	- Length
+	
+
+Functions:
+- Define
+- parameters
+- Import/Export functions
+
+
+Generated Numbers in Bash

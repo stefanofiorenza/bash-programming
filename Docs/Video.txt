@@ -1,0 +1,55 @@
+
+
+
+
+
+		Basic Full tutorials with timeline: (3H)
+		https://www.youtube.com/watch?v=e7BufAVwDiM&list=PLhVi8kCwz5usvh1ytCZSj16ebMRVMvnMp&index=1
+				
+		Playlist:
+		https://www.youtube.com/watch?v=zWVV31NYi1U&list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_&index=29
+
+		Basic Playlist:
+		https://www.youtube.com/playlist?list=PLtK75qxsQaMIlFCcFZpTBLnaCJ0I0uiaY
+
+		Playlist with many corner cases:
+		https://www.youtube.com/playlist?list=PL5sclhLfGLRcFBDwzBFJ3pGsa5r8k9HnN
+
+
+	TERMINAL AND COMMAND LINE
+
+		Command Line@Geek's Lesson: (With timeline)
+		https://www.youtube.com/watch?v=2PGnYjbYuUo
+
+		Terminal Commands with time line@Joe Collins
+		https://www.youtube.com/watch?v=oxuRxtrO2Ag
+
+
+
+	BASH PROGRAMMING:
+
+		Debug and common mistakes (vars and text) worth as begin
+		https://www.youtube.com/watch?v=0n8-GUz8vKw
+
+
+	LABS:
+	
+	https://www.youtube.com/watch?v=nVt3Rst-2H8&list=PL7B7FA4E693D8E790&ab_channel=TheBadTutorials
+	
+	Tutorials@kubucation
+	https://www.youtube.com/playlist?list=PLShDm2AZYnK1SdG3dufPdCqk08sOahUBP
+
+	Tutorials@Bad Tutorials
+	https://www.youtube.com/playlist?list=PL7B7FA4E693D8E790
+
+
+	LINUX:
+
+		Linux Admin Full Course with timeline
+		https://www.youtube.com/watch?v=wsh64rjnRas
+
+		Linux Dirs:
+		https://www.youtube.com/watch?v=HbgzrKJvDRw
+
+		Best Linux Distros | Tips For Choosing The Right Linux Desktop For You
+		https://www.youtube.com/watch?v=jQKC_1efdXs
